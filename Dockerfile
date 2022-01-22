@@ -1,4 +1,4 @@
-FROM node:13.12.0-alpine
+FROM node:13.12.0-alpine as builder
 
 # set working directory
 WORKDIR /app
@@ -14,6 +14,12 @@ RUN npm install react-scripts@3.4.1 -g --silent
 
 # add app
 COPY . ./
+RUN npm run build
 
-# start app
-CMD ["npm", "start"]
+
+FROM nginx:1.21.5-alpine
+WORKDIR /usr/share/nginx/html
+EXPOSE 80
+RUN rm -rf ./*
+COPY --from=builder /app/build /usr/share/nginx/html
+CMD ["nginx", "-g", "daemon off;"]
