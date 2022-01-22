@@ -1,0 +1,19 @@
+#App{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding:10vh 0;
+
+  #mainDisplay{
+    
+    display: flex;
+    flex-direction: row;
+    height: 50vh;
+  }
+
+  #forecastDisplay{
+   
+  }
+}

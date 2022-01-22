@@ -1,0 +1,19 @@
+.location-date{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+
+    .location{
+        color: #A8AABD;
+        font-size: 3rem;
+    }
+
+    .date{
+        color: #FFFFFF;
+        font-size: 6.25rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: center;
+    }
+}

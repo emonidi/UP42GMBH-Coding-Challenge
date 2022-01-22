@@ -1,0 +1,23 @@
+.forecast-list-item{
+    width: 212px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0px;
+    &:hover{
+        background-color: #51557A;
+    } &:focus{
+        background-color: darken(#51557A, 10%);
+        border: none;
+        outline: none;
+    }
+
+    .time, .temperature{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.5rem;
+        color:#A8AABD;
+    }
+}
