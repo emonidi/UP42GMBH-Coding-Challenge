@@ -34,7 +34,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/weatherapp:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/weatherapp
       - name: Check out the repo
         uses: actions/checkout@v2
       
