@@ -24,10 +24,12 @@ function App({ current, forecast, setCurrent }: RootStateOrAny) {
     <div id="App">
       {
         current.data ?
-          <div id="mainDisplay">
-            <WeatherIcon tabIndex={0} icon={current.data.next_1_hours.summary.symbol_code} />
-            <TempDisplay />
-            <LocationDate />
+          <div className="mainDisplay">
+            <WeatherIcon tabIndex={0} icon={current.data.next_1_hours.summary.symbol_code} className="main" />
+            <div className="info-wrapper">
+              <TempDisplay />
+              <LocationDate />
+            </div>
           </div> : "Loading..."
       }
       {

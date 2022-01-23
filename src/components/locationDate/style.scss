@@ -2,10 +2,14 @@
     display: flex;
     flex:1;
     flex-direction: column;
+    padding-right: 1.25rem;
 
     .location{
         color: #A8AABD;
         font-size: 3rem;
+        @media screen and (max-width: 768px){
+            text-align: right;
+        }
     }
 
     .date{
@@ -15,5 +19,11 @@
         flex-direction: column;
         flex-grow: 1;
         justify-content: center;
+
+        @media screen and (max-width: 768px){
+            font-size: 3rem;
+            flex-grow: .75;
+            text-align: right;
+        }
     }
 }

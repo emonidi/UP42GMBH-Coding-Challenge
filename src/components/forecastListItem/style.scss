@@ -1,9 +1,9 @@
 .forecast-list-item{
     width: 212px;
-    height: 320px;
     display: flex;
     flex-direction: column;
     padding: 32px 0px;
+    max-height: 30vh;
     &:hover{
         background-color: #51557A;
     } &:focus{
