@@ -29,18 +29,36 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Used libraries besides react
+* React Redux
+* Redux Toolkit
+* Moment
+* TypeScript
+
+## Used APIs
+Provided api did not work and creating a server for this app to avoid CORS restrictions is a little bit more then I can take for a test. That is why I needed to change the api with one that is not requiring CORS: https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.10&lon=9.58
+Also sinse the location api does not have its own geocoding capabilities I am also using mapbox geocoding api to get the latitude and longitude of the place I would like to query the forcast for. Also since the choise of icons provided was quite poor I decided to use the icons provided by met.no https://api.met.no/weatherapi/weathericon/2.0/documentation so the app would be complete. 
+
+## Style and layout 
+General HD has been followed with no guarantees for "pixel perfect" implementation. After that responsive capabilities are added. I wish I also had a responsive figma prototype. Mobile layout would be much well thought in this case but it is quite satisfactory as it is. SCSS is used for all styling. 
+
+## Host
+Aplication is hosted at http://164.92.215.41/
+
+## Docker
+A multi stage docker build is implemented in the Dockerfile. End image size is around 10MBs.Image repo: https://hub.docker.com/repository/docker/emonidi/weatherapp/
+
+## Git
+A git repository is hosted at: https://github.com/emonidi/weather-app actions for automatic docker build and push are added. 
+
+## Unit and E2E tests.
+No Unit and E2E tests provided sinse the lack of time. 
+
+## Additional notes. 
+I would like to talk to the person who would do this app with its all required bells and wistles for 4 hours :D 
