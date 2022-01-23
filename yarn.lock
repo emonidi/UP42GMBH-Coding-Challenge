@@ -6983,11 +6983,6 @@ react-error-overlay@^6.0.10:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.10.tgz#0fe26db4fa85d9dbb8624729580e90e7159a59a6"
   integrity sha512-mKR90fX7Pm5seCOfz8q9F+66VCc1PGsWSBxKbITjfKVQHMNF2zudxHnMdJiB1fRCb+XsbQV9sO9DCkgsMQgBIA==
 
-react-horizontal-scrolling@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/react-horizontal-scrolling/-/react-horizontal-scrolling-0.1.8.tgz#8c32bdef77f42e18fa3c0628a31bcc5bdd313fd1"
-  integrity sha512-jTHoLwBSwMakYkVc65t+LKSGXRKZT04drE6LP7rIOK13JcJoQUGPwhoiWMChXFeHlpfDrLpPZJPWz1sJuKTnUA==
-
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -7085,6 +7080,11 @@ react-scroll-horizontal@^1.6.6:
   integrity sha512-aR5xE+5EOTQhhrljztHT5qqKEiYU+mKTePaQZJQqikREN0brNfpZst7QP2iEeQo8aip+r7ljTxQZOmfT3OwdSg==
   dependencies:
     react-motion "^0.5.2"
+
+react-swipeable@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-6.2.0.tgz#057271cb7a6fb4af9d2a3f6d80ccdf33e2f64d47"
+  integrity sha512-nWQ8dEM8e/uswZLSIkXUsAnQmnX4MTcryOHBQIQYRMJFDpgDBSiVbKsz/BZVCIScF4NtJh16oyxwaNOepR6xSw==
 
 react@^17.0.2:
   version "17.0.2"
