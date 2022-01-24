@@ -43,10 +43,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Used APIs
 Provided api did not work and creating a server for this app to avoid CORS restrictions is a little bit more then I can take for a test. That is why I needed to change the api with one that is not requiring CORS: https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.10&lon=9.58
-Also sinse the location api does not have its own geocoding capabilities I am also using mapbox geocoding api to get the latitude and longitude of the place I would like to query the forcast for. Also since the choise of icons provided was quite poor I decided to use the icons provided by met.no https://api.met.no/weatherapi/weathericon/2.0/documentation so the app would be complete. 
+Also sinse the weather api does not have its own geocoding capabilities I am also using mapbox geocoding api to get the latitude and longitude of the place I would like to query the forcast for. Also since the choise of icons provided was quite poor I decided to use the icons provided by met.no https://api.met.no/weatherapi/weathericon/2.0/documentation so the app would be complete. 
 
 ## Style and layout 
-General HD has been followed with no guarantees for "pixel perfect" implementation. After that responsive capabilities are added. I wish I also had a responsive figma prototype. Mobile layout would be much well thought in this case but it is quite satisfactory as it is. SCSS is used for all styling. 
+General HD layout has been followed with no guarantees for "pixel perfect" implementation. After that responsive capabilities are added. I wish I also had a responsive figma prototype. Mobile layout would be much well thought in this case but it is quite satisfactory as it is. SCSS is used for all styling. 
 
 ## Host
 Aplication is hosted at http://164.92.215.41/
