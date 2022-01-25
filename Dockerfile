@@ -22,4 +22,5 @@ WORKDIR /usr/share/nginx/html
 EXPOSE 80
 RUN rm -rf ./*
 COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/default.conf /etc/nginx/conf.d/default.conf
 CMD ["nginx", "-g", "daemon off;"]

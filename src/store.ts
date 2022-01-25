@@ -5,7 +5,7 @@ import moment from "moment";
 
 
 const getWeather = async (locationString:string) =>{ 
-    const response = await fetch(`http://localhost:3001/api/data/2.5/forecast?q=${locationString}&appid=b6907d289e10d714a6e88b30761fae22`)
+    const response = await fetch(`/api/data/2.5/forecast?q=${locationString}&appid=b6907d289e10d714a6e88b30761fae22`)
     const data = await response.json();
     return data;
 }
