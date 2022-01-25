@@ -1,44 +1,25 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
-import { Feature } from 'geojson';
+import { TimesSeriesItem, timeSeriesItemToCelsius } from './utils';
 import moment from "moment";
 
 
-const getWeather = async (lat:number, lon:number) =>{ 
-    const response = await fetch(`https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=${lat}&lon=${lon}`)
-    const data:Feature = await response.json();
-   
-    return data;
-}
 
-const getLocation = async (city:string) =>{
-    const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1IjoiZW1vbmlkaSIsImEiOiJjajdqd3pvOHYwaThqMzJxbjYyam1lanI4In0.V_4P8bJqzHxM2W9APpkf1w`)
+const getWeather = async (locationString:string) =>{ 
+    const response = await fetch(`http://localhost:3001/api/data/2.5/forecast?q=${locationString}&appid=b6907d289e10d714a6e88b30761fae22`)
     const data = await response.json();
     return data;
 }
 
-const getLegends = async () =>{
-    const response = await fetch(`https://api.met.no/weatherapi/weathericon/2.0/legends`)
-    const data = await response.json();
-    return data;
-}
 
-export interface TimesSeriesItem{
-    time:string;
-    data:{
-        instant:any,
-        next_12_hours:any,
-        next_6_hours:any,
-        next_1_hours:any,
-    }
-}
 
 const currentReducer = createSlice({
     name: 'current',
     initialState: {} as TimesSeriesItem,
     reducers: {
         set:(state,action) => {
+           
             return  {
-                ...action.payload.properties.timeseries.filter((item:TimesSeriesItem) => moment(item.time).isSame(moment(), 'hour'))[0]
+                ...action.payload.list[0]
             }
         },
         setCurrent(state,action){
@@ -56,7 +37,7 @@ const forecastReducer = createSlice({
     initialState: [],
     reducers: {
         set:(state,action)=>{
-            state = action.payload.properties.timeseries.filter((item:TimesSeriesItem) => moment(item.time).isSameOrBefore(moment().add(24, 'hours'))) 
+            state = action.payload.list.filter((item:TimesSeriesItem) => moment(item.dt_txt).isSameOrBefore(moment().add(24, 'hours'))) 
             return state;
         }
     }
@@ -77,7 +58,6 @@ const legends = createSlice({
     initialState: {},
     reducers: {
         set:(state,action)=>{
-          
             return {...action.payload}
         }
     }
@@ -98,20 +78,25 @@ export type RootState = ReturnType<any>
 
 
 export const initState = async () => {
-    const weatherLocation = await getLocation('Dallas');
-    const locationState = {
-        name:weatherLocation.features[0].text,
-        lat:weatherLocation.features[0].center[1],
-        lon:weatherLocation.features[0].center[0]
-    }
-    store.dispatch(location.actions.set(locationState));
+    // const weatherLocation = await getLocation('Dallas');
+   
 
-    const legendsData = await getLegends();
-    store.dispatch(legends.actions.set(legendsData));
+    // const legendsData = await getLegends();
+    // store.dispatch(legends.actions.set(legendsData));
+
+   
     
-    const weather = await getWeather(locationState.lat, locationState.lon);
+    let weather = await getWeather("munich,de");
+    //for some reason the great api although it doesn't support CORS it return 404 when i request &units=metric
+    weather.list = weather.list.map(timeSeriesItemToCelsius); 
     store.dispatch(currentReducer.actions.set(weather))
     store.dispatch(forecastReducer.actions.set(weather))
+
+    const locationState = {
+        name:weather.city.name,
+        ...weather.city.coord
+    }
+    store.dispatch(location.actions.set(locationState));
 }
 
 initState();

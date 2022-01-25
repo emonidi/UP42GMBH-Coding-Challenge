@@ -1,7 +1,8 @@
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { connect, RootStateOrAny } from 'react-redux';
 import './App.scss';
-import { setCurrent, TimesSeriesItem } from './store';
+import { setCurrent } from './store';
+import {TimesSeriesItem} from './utils';
 import WeatherIcon from './components/weatherIcon';
 import TempDisplay from './components/temdisplay';
 import LocationDate from './components/locationDate';
@@ -18,14 +19,14 @@ function App({ current, forecast, setCurrent }: RootStateOrAny) {
       left:containerScrollPosition + event.deltaY*6, 
       behavior: 'smooth'
     });
-    console.log(fdRef.current?.scrollLeft);
   }, [])
   return (
+   
     <div id="App">
       {
-        current.data ?
+        current.weather ?
           <div className="mainDisplay">
-            <WeatherIcon tabIndex={0} icon={current.data.next_1_hours.summary.symbol_code} className="main" />
+            <WeatherIcon tabIndex={0} icon={current.weather[0].icon} className="main" />
             <div className="info-wrapper">
               <TempDisplay />
               <LocationDate />

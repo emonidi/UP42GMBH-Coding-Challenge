@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss"
 import WeatherIcon  from "../weatherIcon";
-import { TimesSeriesItem } from '../../store';
+import { TimesSeriesItem } from '../../utils';
 import moment from "moment";
 
 export interface ForecastListItemPropsType{
@@ -12,7 +12,6 @@ export interface ForecastListItemPropsType{
 
 const ForecastListItem:React.FC<ForecastListItemPropsType> = (props:ForecastListItemPropsType) => {
   const {item} = props;
-
   return (
     <div 
       tabIndex={0} 
@@ -24,11 +23,11 @@ const ForecastListItem:React.FC<ForecastListItemPropsType> = (props:ForecastList
       onFocus={props.onClick}
     >
         <div className="time">
-            {moment(item.time).format("HH:mm")}
+            {moment(item.dt_txt).format("HH:mm")}
         </div>
-        <WeatherIcon tabIndex={-1} icon={item.data.next_1_hours.summary.symbol_code}/>
+        <WeatherIcon tabIndex={-1} icon={item.weather[0].icon}/>
         <div className="temperature">
-           {Math.round(item.data.instant.details.air_temperature)}°
+           {Math.round(item.main.temp)}°
         </div>
     </div>
   );
