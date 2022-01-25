@@ -1,7 +1,7 @@
-import React from "react";
 import { connect } from "react-redux";
 import { RootState } from "../../store";
 import "./style.scss";
+
 export interface TempDisplayPropType {
     temp: number;
     condition:string;
@@ -27,13 +27,13 @@ function TempDisplay({temp, condition, minMax}:TempDisplayPropType) {
 }
 
 export default connect((state:RootState)=>{
-    const {current,legends} = state;
+    const {current} = state;
     return {
-        temp:Math.round(current.data.instant.details.air_temperature),
-        condition:legends[current.data.next_1_hours.summary.symbol_code.split("_")[0]].desc_en,
+        temp:Math.round(current.main.temp),
+        condition:current.weather[0].main,
         minMax:{
-            air_temperature_max:Math.round(current.data.next_6_hours.details.air_temperature_max),
-            air_temperature_min:Math.round(current.data.next_6_hours.details.air_temperature_min)
+            air_temperature_max:Math.round(current.main.temp_max),
+            air_temperature_min:Math.round(current.main.temp_min)
         }
       }
 })(TempDisplay);

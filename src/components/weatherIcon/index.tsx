@@ -9,6 +9,6 @@ export interface WeatherIconPropType {
 export default function WeatherIcon(props:WeatherIconPropType) {
     return(
         <div tabIndex={props.tabIndex} className={`weather-icon ${props.className ? props.className : ""}`} >
-            <img src={`../assets/weather-icons/${props.icon}.svg`} alt={props.icon}/>
+            <img src={`http://openweathermap.org/img/wn/${props.icon}@4x.png`} alt={props.icon}/>
         </div>)
 }
