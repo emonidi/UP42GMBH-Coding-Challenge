@@ -30,8 +30,6 @@ const currentReducer = createSlice({
 
 export const setCurrent = currentReducer.actions.setCurrent;
 
-
-
 const forecastReducer = createSlice({
     name: 'forecast',
     initialState: [],
