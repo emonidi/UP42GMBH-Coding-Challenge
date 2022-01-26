@@ -88,6 +88,7 @@ export type RootState = ReturnType<any>
 
 
 export const initState = async () => {
+    store.dispatch(ui.actions.setState(LoadStatus.STATE_LOADING))
     try {
         let weather = await getWeather("munich,de");
         //for some reason the great api although it doesn't support CORS it return 404 when i request &units=metric
