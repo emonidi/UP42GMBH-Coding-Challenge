@@ -7,9 +7,10 @@ import WeatherIcon from './components/weatherIcon';
 import TempDisplay from './components/temdisplay';
 import LocationDate from './components/locationDate';
 import ForecastListItem from './components/forecastListItem/forecastListItem';
-import ErrorBoundary from './components/errorBoundary/errorBoundary';
+import ErrorBoundary from './components/errorBoundary';
 
 function App({ current, forecast, ui, setCurrent }: RootStateOrAny) {
+  
   const fdRef = useRef<HTMLDivElement>(null);
   const onWheel = useCallback((event) => {
     const containerScrollPosition: number = fdRef.current?.scrollLeft || 0;
@@ -52,3 +53,4 @@ export default connect((state) => ({ ...state }), (dispatch) => {
     setCurrent: (data: TimesSeriesItem) => dispatch(setCurrent(data)),
   }
 })(App);
+export const TestApp = App;

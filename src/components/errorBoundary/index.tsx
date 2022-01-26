@@ -27,7 +27,6 @@ class ErrorBoundary extends Component<Props, State> {
     }
   
     public render(){
-      
         switch(this.props.status){
           case LoadStatus.STATE_LOADING:
             return <Preloader />;
