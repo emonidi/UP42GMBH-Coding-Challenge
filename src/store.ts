@@ -4,7 +4,8 @@ import moment from "moment";
 
 
 
-const getWeather = async (locationString: string) => {
+export const getWeather = async (locationString: string) => {
+
     try {
         const response = await fetch(`/forecast?q=${locationString}&appid=b6907d289e10d714a6e88b30761fae22`)
         const data = await response.json();
@@ -16,7 +17,7 @@ const getWeather = async (locationString: string) => {
 
 
 
-const currentReducer = createSlice({
+export const currentReducer = createSlice({
     name: 'current',
     initialState: {} as TimesSeriesItem,
     reducers: {
