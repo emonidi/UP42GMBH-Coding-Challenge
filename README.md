@@ -1,4 +1,43 @@
-# UP42GMBH CODING CHALLENGE
+# UP42 front-end coding challenge
+
+For this challenge, we want you to build a simple application capable of fetching and visualizing remote
+data. The goal is to create a weather application displaying the weather for a single day.
+
+## The data
+We will use OpenWeatherMap 5 days/3 hours forecasts as the remote data source for this challenge.
+More information on the API endpoint can be found on the [OpenWeatherMap documentation](https://openweathermap.org/forecast5).
+
+Please use the following endpoint to retrieve the data:
+
+```
+https://samples.openweathermap.org/data/2.5/forecast?q=M%C3%BCnchen,DE&appid=b6907d289e10d714a6e88b30761fae22
+```
+Note: There is no need to create an account.
+
+## The design
+
+Our designers have been creating a prototype that you should use as a reference. Please try to keep as
+close as possible to the design specifications.
+* Please use the following prototype to implement the look and feel: [Figma prototype](https://www.figma.com/proto/WzlDozpSUaiy9yO8zguwtD/Frontend-Coding-Challenge?node-id=8%3A0&viewport=1761%2C1098%2C0.5&scaling=contain).
+
+* You can download the sun icon in SVG format from this [GitHub gist](https://gist.github.com/interstellar-wormhole/f7bc42a3e59d0299bfa465e0652a634b)
+
+* You can access more information on spacing and sizing used in the prototype by creating an account
+on [Figma](https://www.google.com/url?sa=D&q=https://figma.com/&ust=1643583420000000&usg=AOvVaw0zQPNK_lLB_jyTm_Tl8YGU&hl=bg&source=gmail) and opening the [prototype source](https://www.figma.com/file/WzlDozpSUaiy9yO8zguwtD/Frontend-Coding-Challenge?node-id=8%3A0) (optional)
+
+## Details
+Please make sure to meet the following requirements for your submission:
+* Our Frontend stack has projects in React and Vue, so we kindly ask you to stick to one of them for
+this coding challenge
+* You can use any libraries or packages you deem necessary or useful.
+* Code and commit messages should be treated as you would on a real-world task
+* Please take some time to think about code quality and testing, and demonstrate your approach to
+these aspects
+* When submitting, please provide a link to an online Git repository or a ZIP file which includes the
+local .git folder and in the case you deploy it, the URL of the hosted application.
+* We estimate that this challenge should take a maximum of 4 hours to complete, but this is not a hard limit.
+Feel free to take the time you need to ensure that it is reflective of your skills.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
